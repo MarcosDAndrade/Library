@@ -1,4 +1,4 @@
-# Library Crud
+# Library CRUD
 A small project where you can register your books.
 
 # Technologies
