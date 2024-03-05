@@ -1,6 +1,6 @@
 package br.project.Library.Controller;
 
-import br.project.Library.Entities.Books;
+import br.project.Library.Entities.Book;
 import br.project.Library.Service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,32 +10,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/library")
 public class LibraryRestController {
 
     @Autowired
     private LibraryService libraryService;
 
-    @GetMapping("/")
-    List<Books> list(){
+    @GetMapping("/list")
+    List<Book> list(){
         return libraryService.list();
     }
 
-    @PostMapping("/")
-    ResponseEntity<List<Books>> create(@RequestBody Books books){
+    @PostMapping("/add")
+    ResponseEntity<List<Book>> create(@RequestBody Book books){
         return ResponseEntity.status(HttpStatus.CREATED).body(libraryService.create(books));
     }
 
-    @PutMapping("{id}")
-    List<Books> update(@PathVariable Long id, @RequestBody Books books){
+    @PutMapping("/edit/{id}")
+    List<Book> update(@PathVariable Long id, @RequestBody Book books){
         return libraryService.update(id, books);
     }
 
-    @DeleteMapping("{id}")
-    List<Books> delete(@PathVariable Long id){
+    @DeleteMapping("/delete/{id}")
+    List<Book> delete(@PathVariable Long id){
         return libraryService.delete(id);
     }
-
-
 
 }

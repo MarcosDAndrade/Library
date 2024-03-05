@@ -1,11 +1,10 @@
 package br.project.Library.Entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "Books")
-public class Books {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,7 +13,7 @@ public class Books {
     private String gender;
     private Integer publicationYear;
 
-    public Books(Long id, String title, String author, String gender, Integer publicationYear) {
+    public Book(Long id, String title, String author, String gender, Integer publicationYear) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -22,7 +21,7 @@ public class Books {
         this.publicationYear = publicationYear;
     }
 
-    public Books(){
+    public Book(){
 
     }
 

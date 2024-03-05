@@ -1,6 +1,6 @@
 package br.project.Library.Service;
 
-import br.project.Library.Entities.Books;
+import br.project.Library.Entities.Book;
 import br.project.Library.Repository.LibraryRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -17,19 +17,19 @@ public class LibraryService {
 
 
 
-    public List<Books> list() {
-        Sort sort = Sort.by(Sort.Direction.ASC, "title");
+    public List<Book> list() {
+        Sort sort = Sort.by(Sort.Direction.ASC, "id");
         return libraryRepository.findAll(sort);
     }
 
-    public List<Books> create(Books books){
+    public List<Book> create(Book books){
         libraryRepository.save(books);
         return  list();
     }
 
 
-    public List<Books> update(Long id, Books books){
-            Books existingBooks = libraryRepository.findById(id)
+    public List<Book> update(Long id, Book books){
+            Book existingBooks = libraryRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Livro não encontrado com o ID: " + id));
 
             existingBooks.setTitle(books.getTitle());
@@ -39,10 +39,10 @@ public class LibraryService {
 
             libraryRepository.save(existingBooks);
 
-            return list();
+            return libraryRepository.findAll();
     }
 
-    public List<Books> delete(Long id){
+    public List<Book> delete(Long id){
         libraryRepository.deleteById(id);
         return list();
     }
