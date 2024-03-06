@@ -14,8 +14,8 @@ A small project where you can register your books.
 # How to execute 
 * Clone the repository
 * Build the project
-* Execute Aplication
-* Test API Postman or Insomnia
+* Execute Application
+* Test API in Postman or Insomnia
 
 # Examples
 Post: 
