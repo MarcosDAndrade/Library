@@ -1,0 +1,61 @@
+body{
+    background-image: url("img/fundo-1.jpg");
+    background-size: cover;
+    justify-content: center;
+}
+
+.conteiner{
+    background-color: #f8ccc8;
+    color: saddlebrown;
+    text-align: left;
+    background-color: transparent;
+    width: 350px;
+    height: 300px;
+    margin: auto;
+    border: 3px saddlebrown;
+    margin-top: 6%;
+    margin-left: 60%;
+    padding: 2%;
+}
+
+/*Efeito onda*/
+.form-control{
+    position: relative;
+    width: 14rem;
+}
+.form-control input{
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px saddlebrown solid;
+    display: block;
+    padding-top: 20px;
+    font-size: 18px;
+    color: saddlebrown;
+}
+
+.form-control input:focus,
+.form-control input:valid{
+    outline: 0;
+    border-bottom-color: saddlebrown;
+}
+
+.form-control label{
+    position: absolute;
+    top: 14px;
+    left: 0;
+    pointer-events: none;
+}
+
+.form-control label span{
+    display: inline-block;
+    font-size: 12px;
+    min-width: 5px;
+    color: saddlebrown;
+    transition: 0.3s cubic-bezier(0.60, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+ label span,
+.form-control input:valid+ label span{
+    color: saddlebrown;
+    transform: translateY(-10px);
+}
