@@ -2,6 +2,7 @@ package br.project.Library.Service;
 
 import br.project.Library.Entities.Book;
 import br.project.Library.Exception.EmptySpaceException;
+import br.project.Library.Exception.NotNullException;
 import br.project.Library.Repository.LibraryRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

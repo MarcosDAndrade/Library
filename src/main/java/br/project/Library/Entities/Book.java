@@ -1,20 +1,20 @@
 package br.project.Library.Entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Cannot be null")
+    @NotNull(message = "Cannot be null")
 
     private String title;
-    @NotBlank(message = "Cannot be null")
+    @NotNull(message = "Cannot be null")
 
     private String author;
-    @NotBlank(message = "Cannot be null")
+    @NotNull(message = "Cannot be null")
 
     private String gender;
 
