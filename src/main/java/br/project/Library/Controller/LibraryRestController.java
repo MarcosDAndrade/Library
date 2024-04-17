@@ -22,13 +22,13 @@ public class LibraryRestController {
     }
 
     @PostMapping("/add")
-    ResponseEntity<List<Book>> create(@RequestBody Book books){
-        return ResponseEntity.status(HttpStatus.CREATED).body(libraryService.create(books));
+    ResponseEntity<List<Book>> create(@RequestBody Book book){
+        return ResponseEntity.status(HttpStatus.CREATED).body(libraryService.create(book));
     }
 
     @PutMapping("/edit/{id}")
-    List<Book> update(@PathVariable Long id, @RequestBody Book books){
-        return libraryService.update(id, books);
+    List<Book> update(@PathVariable Long id, @RequestBody Book book){
+        return libraryService.update(id, book);
     }
 
     @DeleteMapping("/delete/{id}")

@@ -1,30 +1,46 @@
 package br.project.Library.Entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "Book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String author;
-    private String gender;
-    private Integer publicationYear;
+    @NotBlank(message = "Cannot be null")
 
-    public Book(Long id, String title, String author, String gender, Integer publicationYear) {
+    private String title;
+    @NotBlank(message = "Cannot be null")
+
+    private String author;
+    @NotBlank(message = "Cannot be null")
+
+    private String gender;
+
+    private Integer publicationYear;
+    private Integer quantity;
+
+    public Book(Long id, String title, String author, String gender, Integer publicationYear, Integer quantity) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.gender = gender;
         this.publicationYear = publicationYear;
+        this.quantity = quantity;
     }
 
     public Book(){
 
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
     public Long getId() {
         return id;
     }

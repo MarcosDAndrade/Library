@@ -1,6 +1,7 @@
 package br.project.Library.Service;
 
 import br.project.Library.Entities.Book;
+import br.project.Library.Exception.EmptySpaceException;
 import br.project.Library.Repository.LibraryRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -22,20 +23,20 @@ public class LibraryService {
         return libraryRepository.findAll(sort);
     }
 
-    public List<Book> create(Book books){
-        libraryRepository.save(books);
+    public List<Book> create(Book book){
+        libraryRepository.save(book);
         return  list();
     }
 
 
-    public List<Book> update(Long id, Book books){
-            Book existingBooks = libraryRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Livro não encontrado com o ID: " + id));
+    public List<Book> update(Long id, Book book){
+            Book existingBooks = libraryRepository.findById(id).orElseThrow(EmptySpaceException::new);
 
-            existingBooks.setTitle(books.getTitle());
-            existingBooks.setAuthor(books.getAuthor());
-            existingBooks.setGender(books.getGender());
-            existingBooks.setPublicationYear(books.getPublicationYear());
+            existingBooks.setTitle(book.getTitle());
+            existingBooks.setAuthor(book.getAuthor());
+            existingBooks.setGender(book.getGender());
+            existingBooks.setPublicationYear(book.getPublicationYear());
+            existingBooks.setQuantity(existingBooks.getQuantity());
 
             libraryRepository.save(existingBooks);
 
